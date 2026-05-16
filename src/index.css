@@ -335,7 +335,7 @@ img, svg { display: block; max-width: 100%; }
    ============================================================ */
 .section__bg-num {
   position: absolute;
-  top: var(--section-y);
+  top: 0;
   right: 0;
   font-family: var(--font-display);
   font-size: clamp(120px, 20vw, 380px);
@@ -497,10 +497,6 @@ img, svg { display: block; max-width: 100%; }
 /* ============================================================
    About
    ============================================================ */
-.about .section__bg-num {
-  top: var(--section-y);
-}
-
 .about__quote {
   margin: 0;
   padding: 0;
