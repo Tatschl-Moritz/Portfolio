@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion'
+import { useLenis } from 'lenis/react'
 import { useApp } from '../context/AppContext'
 import { translations } from '../data/translations'
 
@@ -10,6 +11,7 @@ const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').m
 
 function MagneticBtn({ href, variant, children }) {
   const ref = useRef(null)
+  const lenis = useLenis()
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const xS = useSpring(x, { stiffness: 300, damping: 28 })
@@ -22,6 +24,10 @@ function MagneticBtn({ href, variant, children }) {
     y.set((e.clientY - rect.top - rect.height / 2) * 0.32)
   }
   const onLeave = () => { x.set(0); y.set(0) }
+  const onClick = (e) => {
+    e.preventDefault()
+    lenis?.scrollTo(href, { duration: 1.6, easing: t => 1 - Math.pow(1 - t, 4) })
+  }
 
   return (
     <motion.a
@@ -31,6 +37,7 @@ function MagneticBtn({ href, variant, children }) {
       style={{ x: xS, y: yS }}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
+      onClick={onClick}
     >
       {children}
     </motion.a>
