@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLenis } from 'lenis/react'
 import { useApp } from '../context/AppContext'
 import { translations } from '../data/translations'
 
@@ -29,6 +30,12 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const { theme, toggleTheme, lang } = useApp()
   const t = translations[lang].nav
+  const lenis = useLenis()
+
+  const scrollTo = (e, target) => {
+    e.preventDefault()
+    lenis?.scrollTo(target, { duration: 1.6, easing: t => 1 - Math.pow(1 - t, 4) })
+  }
 
   useEffect(() => {
     let lastY = 0
@@ -50,12 +57,12 @@ export default function Nav() {
       transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="container nav__inner">
-        <a href="#top" className="brand">Moritz Tatschl</a>
+        <a href="#top" className="brand" onClick={e => scrollTo(e, '#top')}>Moritz Tatschl</a>
 
         <nav className="nav__links" aria-label="Primary">
-          <a href="#about">{t.about}</a>
-          <a href="#projects">{t.projects}</a>
-          <a href="#skills">{t.skills}</a>
+          <a href="#about"    onClick={e => scrollTo(e, '#about')}>{t.about}</a>
+          <a href="#projects" onClick={e => scrollTo(e, '#projects')}>{t.projects}</a>
+          <a href="#skills"   onClick={e => scrollTo(e, '#skills')}>{t.skills}</a>
         </nav>
 
         <div className="nav__controls">
@@ -68,7 +75,7 @@ export default function Nav() {
           </button>
         </div>
 
-        <a href="#contact" className="nav__cta">
+        <a href="#contact" className="nav__cta" onClick={e => scrollTo(e, '#contact')}>
           <span className="dot" aria-hidden="true" />
           {t.available}
         </a>

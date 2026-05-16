@@ -6,6 +6,8 @@ import { translations } from '../data/translations'
 const LINE1 = 'MORITZ'
 const LINE2 = 'TATSCHL'
 
+const canHover = () => window.matchMedia('(hover: hover) and (pointer: fine)').matches
+
 function MagneticBtn({ href, variant, children }) {
   const ref = useRef(null)
   const x = useMotionValue(0)
@@ -14,6 +16,7 @@ function MagneticBtn({ href, variant, children }) {
   const yS = useSpring(y, { stiffness: 300, damping: 28 })
 
   const onMove = (e) => {
+    if (!canHover()) return
     const rect = ref.current.getBoundingClientRect()
     x.set((e.clientX - rect.left - rect.width / 2) * 0.32)
     y.set((e.clientY - rect.top - rect.height / 2) * 0.32)

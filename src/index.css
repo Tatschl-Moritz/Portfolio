@@ -462,6 +462,8 @@ img, svg { display: block; max-width: 100%; }
   .hero__actions { flex-direction: column; align-items: flex-start; }
   .btn { width: 100%; justify-content: center; }
   .hero__sub { padding-bottom: 40px; }
+  .btn--primary:hover { background: var(--fg); border-color: var(--fg); }
+  .btn--ghost:hover { border-color: var(--border); }
 }
 
 /* ============================================================
