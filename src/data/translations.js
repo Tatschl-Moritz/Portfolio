@@ -22,12 +22,10 @@ export const translations = {
       ],
     },
     about: {
-      eyebrow:  'About — 01',
-      title_1:  'Still figuring it ',
-      title_2:  'out',
-      body_before: "I'm a second-semester Computer Science student at TU Wien, still figuring out which areas of CS interest me most. Right now I'm focused on ",
-      body_em:     'improving fundamentals',
-      body_after:  " and understanding how software and systems work from the ground up. I enjoy learning by building small projects — and I like understanding things deeply instead of only using them.",
+      eyebrow:    'About — 01',
+      quote:      '"If you know exactly what you want to be, you become it — and that is your punishment."',
+      quote_attr: '— Oscar Wilde',
+      lede:       "I don't fully know yet where in CS I belong — and I've started to like that.",
       facts: [
         { dt: 'Currently',  dd: '2nd semester, BSc Computer Science · TU Wien' },
         { dt: 'Based in',   dd: 'Vienna, Austria' },
@@ -41,19 +39,19 @@ export const translations = {
       title_2:  'learning by building',
       items: [
         {
-          num: '01 / 2026', title: 'Learning Lab',
-          desc: "A growing collection of small experiments — algorithms, data structures, and rebuilding familiar tools from scratch to understand what's actually happening underneath.",
-          tags: ['Fundamentals', 'Experiments', 'Ongoing'], href: '#',
-        },
-        {
-          num: '02 / 2026', title: 'AI Explorations',
-          desc: 'First experiments with machine learning — following tutorials, breaking things, and trying to understand the math behind the models instead of treating them as a black box.',
-          tags: ['Python', 'ML', 'Learning'], href: '#',
-        },
-        {
-          num: '03 / 2026', title: 'Portfolio Website',
+          num: '01 / 2026', title: 'Portfolio Website',
           desc: "This site — rebuilt with React and Framer Motion. A small place to keep track of what I'm working on, continuously improved as I learn more.",
           tags: ['React', 'Framer Motion', 'Vite'], href: '#',
+        },
+        {
+          num: '02 / —', title: 'Coming soon',
+          desc: 'Something is being figured out here.',
+          tags: ['Placeholder'], href: '#', placeholder: true,
+        },
+        {
+          num: '03 / —', title: 'Coming soon',
+          desc: 'Something is being figured out here.',
+          tags: ['Placeholder'], href: '#', placeholder: true,
         },
       ],
     },
@@ -69,9 +67,7 @@ export const translations = {
     },
     contact: {
       eyebrow:  'Contact — 04',
-      title_1:  'Say ',
-      title_2:  'hello',
-      lede:     "Curious about something I'm working on, or want to learn / build together? Always happy to chat.",
+      lede:     "Feel free to reach out.\nI could use the distraction.",
       links: [
         { num: '01', label: 'Email',    handle: 'moritz@tatschl.dev',      href: 'mailto:moritz@tatschl.dev',                                  external: false },
         { num: '02', label: 'GitHub',   handle: '@Tatschl-Moritz',          href: 'https://github.com/Tatschl-Moritz',                          external: true  },
@@ -107,12 +103,10 @@ export const translations = {
       ],
     },
     about: {
-      eyebrow:  'Über mich — 01',
-      title_1:  'Noch am ',
-      title_2:  'Entdecken',
-      body_before: 'Ich bin im zweiten Semester des Informatik-Bachelorstudiums an der TU Wien und erkunde noch, welche Bereiche der Informatik mich am meisten begeistern. Aktuell konzentriere ich mich darauf, ',
-      body_em:     'Grundlagen zu festigen',
-      body_after:  ' und zu verstehen, wie Software und Systeme von Grund auf funktionieren. Ich lerne am liebsten durch das Bauen kleiner Projekte — und verstehe Dinge lieber tief, als sie nur zu nutzen.',
+      eyebrow:    'Über mich — 01',
+      quote:      '"If you know exactly what you want to be, you become it — and that is your punishment."',
+      quote_attr: '— Oscar Wilde',
+      lede:       'Ich weiß noch nicht genau, wo in der Informatik mein Platz ist — und ich habe angefangen, das zu mögen.',
       facts: [
         { dt: 'Aktuell',    dd: '2. Semester, BSc Informatik · TU Wien' },
         { dt: 'Standort',   dd: 'Wien, Österreich' },
@@ -126,19 +120,19 @@ export const translations = {
       title_2:  'beim Bauen lerne',
       items: [
         {
-          num: '01 / 2026', title: 'Learning Lab',
-          desc: 'Eine wachsende Sammlung kleiner Experimente — Algorithmen, Datenstrukturen und das Nachbauen bekannter Tools, um zu verstehen, was tatsächlich darunter passiert.',
-          tags: ['Grundlagen', 'Experimente', 'Laufend'], href: '#',
-        },
-        {
-          num: '02 / 2026', title: 'KI-Experimente',
-          desc: 'Erste Versuche mit Machine Learning — Tutorials folgen, Dinge kaputtmachen und versuchen, die Mathematik hinter den Modellen zu verstehen, statt sie als Black Box zu behandeln.',
-          tags: ['Python', 'ML', 'Lernen'], href: '#',
-        },
-        {
-          num: '03 / 2026', title: 'Portfolio Website',
+          num: '01 / 2026', title: 'Portfolio Website',
           desc: 'Diese Seite — neu gebaut mit React und Framer Motion. Ein kleiner Ort, um den Überblick über meine Projekte zu behalten, kontinuierlich verbessert während ich lerne.',
           tags: ['React', 'Framer Motion', 'Vite'], href: '#',
+        },
+        {
+          num: '02 / —', title: 'Kommt noch',
+          desc: 'Hier wird gerade etwas herausgefunden.',
+          tags: ['Platzhalter'], href: '#', placeholder: true,
+        },
+        {
+          num: '03 / —', title: 'Kommt noch',
+          desc: 'Hier wird gerade etwas herausgefunden.',
+          tags: ['Platzhalter'], href: '#', placeholder: true,
         },
       ],
     },
@@ -154,9 +148,7 @@ export const translations = {
     },
     contact: {
       eyebrow:  'Kontakt — 04',
-      title_1:  'Sag ',
-      title_2:  'Hallo',
-      lede:     'Neugierig auf etwas, woran ich arbeite, oder möchtest du zusammen lernen / bauen? Ich freue mich immer über eine Nachricht.',
+      lede:     "Melde dich einfach.\nIch könnte die Ablenkung gebrauchen.",
       links: [
         { num: '01', label: 'E-Mail',   handle: 'moritz@tatschl.dev',      href: 'mailto:moritz@tatschl.dev',                                  external: false },
         { num: '02', label: 'GitHub',   handle: '@Tatschl-Moritz',          href: 'https://github.com/Tatschl-Moritz',                          external: true  },

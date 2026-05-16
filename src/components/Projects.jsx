@@ -16,10 +16,10 @@ const ArrowIcon = () => (
   </svg>
 )
 
-function ProjectCard({ num, title, desc, tags, href }) {
+function ProjectCard({ num, title, desc, tags, href, placeholder }) {
   return (
     <motion.a
-      className="project"
+      className={`project${placeholder ? ' project--placeholder' : ''}`}
       href={href}
       aria-label={`${title} — open project`}
       whileHover="hover"

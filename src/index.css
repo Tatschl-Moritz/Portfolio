@@ -335,7 +335,7 @@ img, svg { display: block; max-width: 100%; }
    ============================================================ */
 .section__bg-num {
   position: absolute;
-  top: 0;
+  top: var(--section-y);
   right: 0;
   font-family: var(--font-display);
   font-size: clamp(120px, 20vw, 380px);
@@ -353,9 +353,6 @@ img, svg { display: block; max-width: 100%; }
   .section__bg-num { display: none; }
 }
 
-.contact__bg-num {
-  top: var(--section-y);
-}
 
 .hero__meta {
   display: flex;
@@ -500,28 +497,52 @@ img, svg { display: block; max-width: 100%; }
 /* ============================================================
    About
    ============================================================ */
-.about__grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: clamp(32px, 6vw, 80px);
-  align-items: start;
+.about .section__bg-num {
+  top: var(--section-y);
 }
 
-.about__body {
-  font-size: clamp(16px, 1.5vw, 19px);
+.about__quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  max-width: 720px;
+  margin-top: clamp(48px, 8vw, 96px);
+}
+
+.about__quote-text {
+  font-size: clamp(22px, 3.2vw, 40px);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+  color: var(--fg);
+  font-style: italic;
+  margin: 0;
+}
+
+.about__quote-attr {
+  display: block;
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
   color: var(--muted);
-  line-height: 1.7;
-  max-width: 58ch;
-  margin-bottom: 40px;
+  font-style: normal;
 }
 
-.about__body em { color: var(--fg); font-style: normal; }
+.about__lede {
+  margin-top: clamp(36px, 5vw, 60px);
+  font-size: clamp(15px, 1.4vw, 18px);
+  color: var(--muted);
+  line-height: 1.65;
+  max-width: 480px;
+}
 
 .about__facts {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  margin-top: clamp(48px, 6vw, 80px);
   border-top: 1px solid var(--border);
+  max-width: 640px;
 }
 
 .about__fact {
@@ -547,11 +568,6 @@ img, svg { display: block; max-width: 100%; }
   line-height: 1.55;
 }
 
-@media (max-width: 768px) {
-  .about__grid { grid-template-columns: 1fr; }
-  .about__grid > div:first-child { display: none; }
-}
-
 /* ============================================================
    Projects
    ============================================================ */
@@ -560,6 +576,8 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .projects__list li { display: block; }
+
+.project--placeholder { opacity: 0.38; pointer-events: none; }
 
 .project {
   display: grid;
@@ -770,6 +788,13 @@ img, svg { display: block; max-width: 100%; }
   margin: 20px 0 28px;
   color: var(--fg);
   overflow-wrap: break-word;
+}
+
+.contact__sub {
+  font-size: clamp(15px, 1.4vw, 20px);
+  color: var(--muted);
+  margin-top: 12px;
+  margin-bottom: clamp(40px, 7vw, 72px);
 }
 
 .contact__lede {

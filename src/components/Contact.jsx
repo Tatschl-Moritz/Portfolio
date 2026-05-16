@@ -45,15 +45,15 @@ export default function Contact() {
             viewport={{ once: true, margin: '-60px' }}
             variants={clipReveal}
           >
-            {t.title_1}<span className="accent">{t.title_2}</span>.
+            {t.lede.split('\n')[0]}
           </motion.h2>
           <motion.p
-            className="contact__lede"
-            initial={{ opacity: 0, y: 24 }}
+            className="contact__sub"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >{t.lede}</motion.p>
+          >{t.lede.split('\n')[1]}</motion.p>
         </div>
 
         <div className="contact__links">
