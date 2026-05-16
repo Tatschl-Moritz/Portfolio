@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
 import { useApp } from '../context/AppContext'
 import { translations } from '../data/translations'
@@ -11,9 +11,22 @@ const clipReveal = {
   },
 }
 
-function TickerRow({ items, label, x }) {
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth <= 768
+  )
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', check, { passive: true })
+    return () => window.removeEventListener('resize', check)
+  }, [])
+  return isMobile
+}
+
+function TickerRow({ items, label, x, reverse }) {
   const content = [...items, ...items, ...items, ...items, ...items, ...items]
   const [hovered, setHovered] = useState(false)
+  const isMobile = useIsMobile()
 
   const cursorX = useMotionValue(-300)
   const cursorY = useMotionValue(-300)
@@ -27,12 +40,15 @@ function TickerRow({ items, label, x }) {
 
   return (
     <div
-      className="ticker-row"
+      className={`ticker-row${reverse ? ' ticker-row--reverse' : ''}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={onMove}
     >
-      <motion.div className="ticker-row__inner" style={{ x }}>
+      <motion.div
+        className="ticker-row__inner"
+        style={isMobile ? {} : { x }}
+      >
         {content.map((item, i) => (
           <span key={i} className="ticker-row__group">
             <span className="ticker-solid">{item}</span>
@@ -106,7 +122,13 @@ export default function Skills() {
 
       <div className="skills-ticker">
         {t.categories.map((cat, i) => (
-          <TickerRow key={cat.name} items={cat.items} label={cat.name} x={[x0, x1, x2][i]} />
+          <TickerRow
+            key={cat.name}
+            items={cat.items}
+            label={cat.name}
+            x={[x0, x1, x2][i]}
+            reverse={i === 1}
+          />
         ))}
       </div>
     </section>
