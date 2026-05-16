@@ -80,7 +80,7 @@ export const translations = {
     },
     footer: {
       left:  '© 2026 Moritz Tatschl — Vienna',
-      right: 'v2.0 · React + Framer Motion',
+      right: 'v2.1 · React + Framer Motion',
     },
   },
 
@@ -165,7 +165,7 @@ export const translations = {
     },
     footer: {
       left:  '© 2026 Moritz Tatschl — Wien',
-      right: 'v2.0 · React + Framer Motion',
+      right: 'v2.1 · React + Framer Motion',
     },
   },
 }
