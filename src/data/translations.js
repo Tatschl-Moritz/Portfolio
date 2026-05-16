@@ -7,7 +7,7 @@ export const translations = {
       available: 'Available for work',
     },
     hero: {
-      eyebrow:      'Portfolio — 2026 / v2',
+      eyebrow:      'Portfolio — 2026 / v2.1',
       location:     'Vienna, Austria',
       university:   'TU Wien · 2nd Semester CS',
       role:         'Computer Science Student & Software Engineer',
@@ -92,7 +92,7 @@ export const translations = {
       available: 'Verfügbar',
     },
     hero: {
-      eyebrow:      'Portfolio — 2026 / v2',
+      eyebrow:      'Portfolio — 2026 / v2.1',
       location:     'Wien, Österreich',
       university:   'TU Wien · 2. Semester Informatik',
       role:         'Informatikstudent & Software-Entwickler',
