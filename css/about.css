@@ -1,0 +1,58 @@
+/* =============================================================
+   About section
+   ============================================================= */
+/* ------------------------------------------------------------------
+     About
+  ------------------------------------------------------------------ */
+  .about__grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 40px;
+  }
+  .about__body {
+    max-width: 60ch;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+    color: var(--dark);
+    font-weight: 400;
+  }
+  .about__body em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .about__facts {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--dark-15);
+  }
+  .about__fact {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--dark-15);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .about__fact dt {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--dark-55);
+  }
+  .about__fact dd {
+    margin: 0;
+    font-size: 16px;
+    color: var(--dark);
+  }
+  .about__facts {
+    display: block;
+  }
+  @media (max-width: 720px) {
+    .about__grid { grid-template-columns: 1fr; }
+    .about__fact { grid-template-columns: 120px 1fr; gap: 16px; }
+  }
