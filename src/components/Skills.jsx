@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from 'react'
-import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from 'framer-motion'
 import { useApp } from '../context/AppContext'
 import { translations } from '../data/translations'
 
@@ -11,27 +11,14 @@ const clipReveal = {
   },
 }
 
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth <= 768
-  )
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 768)
-    window.addEventListener('resize', check, { passive: true })
-    return () => window.removeEventListener('resize', check)
-  }, [])
-  return isMobile
-}
-
 function TickerRow({ items, label, x, reverse }) {
   const content = [...items, ...items, ...items, ...items, ...items, ...items]
   const [hovered, setHovered] = useState(false)
-  const isMobile = useIsMobile()
 
   const cursorX = useMotionValue(-300)
   const cursorY = useMotionValue(-300)
-  const springX = useSpring(cursorX, { stiffness: 500, damping: 40 })
-  const springY = useSpring(cursorY, { stiffness: 500, damping: 40 })
+  const springCursorX = useSpring(cursorX, { stiffness: 500, damping: 40 })
+  const springCursorY = useSpring(cursorY, { stiffness: 500, damping: 40 })
 
   const onMove = (e) => {
     cursorX.set(e.clientX + 18)
@@ -45,10 +32,7 @@ function TickerRow({ items, label, x, reverse }) {
       onMouseLeave={() => setHovered(false)}
       onMouseMove={onMove}
     >
-      <motion.div
-        className="ticker-row__inner"
-        style={isMobile ? {} : { x }}
-      >
+      <motion.div className="ticker-row__inner" style={{ x }}>
         {content.map((item, i) => (
           <span key={i} className="ticker-row__group">
             <span className="ticker-solid">{item}</span>
@@ -61,7 +45,7 @@ function TickerRow({ items, label, x, reverse }) {
         {hovered && (
           <motion.div
             className="ticker-tooltip"
-            style={{ x: springX, y: springY }}
+            style={{ x: springCursorX, y: springCursorY }}
             initial={{ opacity: 0, scale: 0.88 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.88 }}
@@ -90,9 +74,13 @@ export default function Skills() {
     offset: ['start end', 'end start'],
   })
 
-  const x0 = useTransform(scrollYProgress, [0, 1], ['0%',   '-28%'])
-  const x1 = useTransform(scrollYProgress, [0, 1], ['-28%', '0%'])
-  const x2 = useTransform(scrollYProgress, [0, 1], ['0%',   '-22%'])
+  // Spring smoothing reduces jank on mobile — scroll events come in bursts,
+  // the spring interpolates between them so motion stays fluid.
+  const smooth = useSpring(scrollYProgress, { stiffness: 60, damping: 20, restDelta: 0.001 })
+
+  const x0 = useTransform(smooth, [0, 1], ['0%',   '-28%'])
+  const x1 = useTransform(smooth, [0, 1], ['-28%', '0%'])
+  const x2 = useTransform(smooth, [0, 1], ['0%',   '-22%'])
 
   return (
     <section id="skills" className="section" ref={sectionRef}>
