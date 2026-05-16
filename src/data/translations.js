@@ -7,7 +7,7 @@ export const translations = {
       available: 'Available for work',
     },
     hero: {
-      eyebrow:      'Portfolio — 2026 / v2.1',
+      eyebrow:      'Portfolio — 2026 / v2.6',
       location:     'Vienna, Austria',
       university:   'TU Wien · 2nd Semester CS',
       role:         'Computer Science Student & Software Engineer',
@@ -76,7 +76,7 @@ export const translations = {
     },
     footer: {
       left:  '© 2026 Moritz Tatschl — Vienna',
-      right: 'v2.1 · React + Framer Motion',
+      right: 'v2.6 · React + Framer Motion',
     },
   },
 
@@ -88,7 +88,7 @@ export const translations = {
       available: 'Verfügbar',
     },
     hero: {
-      eyebrow:      'Portfolio — 2026 / v2.1',
+      eyebrow:      'Portfolio — 2026 / v2.6',
       location:     'Wien, Österreich',
       university:   'TU Wien · 2. Semester Informatik',
       role:         'Informatikstudent & Software-Entwickler',
@@ -157,7 +157,7 @@ export const translations = {
     },
     footer: {
       left:  '© 2026 Moritz Tatschl — Wien',
-      right: 'v2.1 · React + Framer Motion',
+      right: 'v2.6 · React + Framer Motion',
     },
   },
 }
