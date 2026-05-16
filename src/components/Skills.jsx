@@ -74,13 +74,20 @@ export default function Skills() {
     offset: ['start end', 'end start'],
   })
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+
   // Spring smoothing reduces jank on mobile — scroll events come in bursts,
   // the spring interpolates between them so motion stays fluid.
-  const smooth = useSpring(scrollYProgress, { stiffness: 60, damping: 20, restDelta: 0.001 })
+  const smooth = useSpring(scrollYProgress, {
+    stiffness: isMobile ? 40 : 60,
+    damping:   isMobile ? 18 : 20,
+    restDelta: 0.001,
+  })
 
-  const x0 = useTransform(smooth, [0, 1], ['0%',   '-28%'])
-  const x1 = useTransform(smooth, [0, 1], ['-28%', '0%'])
-  const x2 = useTransform(smooth, [0, 1], ['0%',   '-22%'])
+  // Halve the range on mobile: slower effect = lag is less noticeable
+  const x0 = useTransform(smooth, [0, 1], ['0%',                    isMobile ? '-14%' : '-28%'])
+  const x1 = useTransform(smooth, [0, 1], [isMobile ? '-14%' : '-28%', '0%'])
+  const x2 = useTransform(smooth, [0, 1], ['0%',                    isMobile ? '-11%' : '-22%'])
 
   return (
     <section id="skills" className="section" ref={sectionRef}>
